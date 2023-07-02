@@ -1,3 +1,46 @@
+# Задача 22: Даны два неупорядоченных набора целых чисел (может быть, с повторениями).
+# Выдать без повторений в порядке возрастания все те числа, которые встречаются в обоих наборах.
+# Пользователь вводит 2 числа. n — кол-во элементов первого множества. 
+# m — кол-во элементов второго множества.
+# Затем пользователь вводит сами элементы множеств.
+
+n = int(input("Введите кол-во эл-ов списка 1  "))
+print()
+m = int(input("Введите кол-во эл-ов списка 2  "))
+
+list_n = []
+list_m = []
+
+for i in range(n):
+    number_n = int(input("Число для списка 1  "))
+    list_n.append(number_n )
+for i in range(m):
+    number_m = int(input("Число для списка 2  "))
+    list_m.append(number_m)
+print()
+print(f"Первый список {list_n}")
+print(f"Второй список {list_m}")
+
+def intersectionss(list1, list2):
+    list3 = [value for value in list1 if value in list2]
+    return list3
+
+total = (intersectionss(list_m, list_n))
+def sort (array):
+    if len(array) < 2:
+        return array
+    else:
+        minn = array[0]
+        less = [i for i in array[1:] if i <= minn]
+        big = [i for i in array[1:] if i > minn]
+        return sort (less) + [minn] + sort (big)
+
+a = set(sort(total)) 
+print(f"В итоги получаем такой список {a}")
+
+
+
+
 # Задача 6: -- домашка
 # num = int(input("Введите шестизначное число: "))
 # sum1 = 0
